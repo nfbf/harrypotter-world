@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController, NavController } from '@ionic/angular';
+import { InformacoesPersonagemPage } from '../informacoes-personagem/informacoes-personagem.page';
 import { Personagem } from '../model/personagem';
 import { InfoPersonagensService } from '../servicos/info-personagens.service';
 
@@ -12,12 +14,12 @@ export class BuscarPersonagemPage implements OnInit {
 
   listaPersonagens: Personagem[];
   personagensSelecionados : Personagem[];
-  autocomplete: { input: string; };
+ 
 
-  constructor(private infos: InfoPersonagensService) {
+  constructor(private infos: InfoPersonagensService, private modalController: ModalController) {
     this.listaPersonagens = new Array();
     this.personagensSelecionados = new Array();
-    this.autocomplete = { input: '' };
+  
 
     this.infos.carregarPersonagens().then((sucess => {
       this.listaPersonagens = sucess;
@@ -44,8 +46,14 @@ export class BuscarPersonagemPage implements OnInit {
     }
   }
 
-  itemSelecionado(item){
-    console.log(item)
+  async itemSelecionado(item){
+    const modal = await this.modalController.create({
+      component: InformacoesPersonagemPage,
+      componentProps: {
+        personagemSelecionado: item
+      }
+    });
+    return await modal.present();
   }
 
 }

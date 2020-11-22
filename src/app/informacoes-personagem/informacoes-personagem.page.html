@@ -1,10 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>informacoes-personagem</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  
-
+  <ion-card>
+    <br>
+    <img style="margin-left:22%" [src]="personagemSelecionado.image" />
+    <ion-card-header>
+      <br>
+      <ion-card-subtitle>Personagem</ion-card-subtitle>
+      <ion-card-title>{{personagemSelecionado.name.toUpperCase()}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{personagemSelecionado.gender}}, nascido em {{personagemSelecionado.dateOfBirth}},
+      pertencente a casa {{personagemSelecionado.house}}, interpretado pelo ator
+      {{personagemSelecionado.actor}}.
+    </ion-card-content>
+  </ion-card>
 </ion-content>

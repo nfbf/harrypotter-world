@@ -1,6 +1,6 @@
 <ion-content>
   
-  <ion-searchbar [(ngModel)]="autocomplete.input" (ionChange)="pesquisaPeloTermo($event)" placeholder="Digite o nome de um personagem..." expand="block"></ion-searchbar>
+  <ion-searchbar (ionChange)="pesquisaPeloTermo($event)" placeholder="Digite o nome de um personagem..." expand="block"></ion-searchbar>
   <ion-list [hidden]="personagensSelecionados.length == 0">
     <ion-item *ngFor="let item of personagensSelecionados" tappable (click)="itemSelecionado(item)">
       {{ item.name }}
