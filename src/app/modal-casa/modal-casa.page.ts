@@ -1,14 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalController, NavParams, IonSlides } from '@ionic/angular';
-import { Personagem } from '../model/personagem';
-import { Util } from '../util/util';
 
 @Component({
-  selector: 'app-informacoes-personagem',
-  templateUrl: './informacoes-personagem.page.html',
-  styleUrls: ['./informacoes-personagem.page.scss'],
+  selector: 'app-modal-casa',
+  templateUrl: './modal-casa.page.html',
+  styleUrls: ['./modal-casa.page.scss'],
 })
-export class InformacoesPersonagemPage implements OnInit {
+export class ModalCasaPage implements OnInit {
   @ViewChild(IonSlides) slides: IonSlides;
   casaSelecionada: string;
   textoModal: string;

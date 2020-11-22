@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'informacoes-personagem',
-    loadChildren: () => import('./informacoes-personagem/informacoes-personagem.module').then( m => m.InformacoesPersonagemPageModule)
+    loadChildren: () => import('./modal-casa/modal-casa.module').then( m => m.ModalCasaPageModule)
   },
 ];
 

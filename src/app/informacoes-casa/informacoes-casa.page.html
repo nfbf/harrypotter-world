@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar  color="dark">
-    <ion-title>Conhecendo Horgwats</ion-title>
+    <ion-title>Conhecendo as casas de  Hogwarts</ion-title>
     <ion-buttons slot="start">
       <ion-back-button  text="" defaultHref="home"></ion-back-button>
     </ion-buttons>
@@ -15,19 +15,19 @@
   <ion-grid>
     <ion-row>
     <ion-col>
-      <ion-button mode="ios" class="grifinoria" router-direction="root" routerLink="/buscar/personagem" fill="outline" size="large" expand="block">Grifinória</ion-button>
+      <ion-button   class="grifinoria" (click)="abrirModal('gryffindor')" fill="outline" size="large" expand="block">Grifinória</ion-button>
 
     </ion-col>
     <ion-col>
-      <ion-button mode="ios" class="sonserina" router-direction="root" routerLink="/buscar/personagem" fill="outline" size="large" expand="block">Sonserina</ion-button>
+      <ion-button  class="sonserina" (click)="abrirModal('slytherin')"  fill="outline" size="large" expand="block">Sonserina</ion-button>
 
     </ion-col>
     <ion-col>
-      <ion-button mode="ios" class="lufalufa" router-direction="root" routerLink="/buscar/personagem" fill="outline" size="large" expand="block">Lufa Lufa</ion-button>
+      <ion-button   class="lufalufa" (click)="abrirModal('hufflepuff')"  fill="outline" size="large" expand="block">Lufa-Lufa</ion-button>
 
     </ion-col>
     <ion-col>
-      <ion-button mode="ios" class="corvinal"  router-direction="root" routerLink="/buscar/personagem" fill="outline" size="large" expand="block">Corvinal</ion-button>
+      <ion-button   class="corvinal"  (click)="abrirModal('ravenclaw')"  fill="outline" size="large" expand="block">Corvinal</ion-button>
 
     </ion-col>
   </ion-row>

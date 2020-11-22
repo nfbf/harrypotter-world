@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides, ModalController, NavController } from '@ionic/angular';
-import { InformacoesPersonagemPage } from '../informacoes-personagem/informacoes-personagem.page';
 import { Personagem } from '../model/personagem';
 import { InfoPersonagensService } from '../servicos/info-personagens.service';
 import { Util } from '../util/util';
