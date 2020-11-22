@@ -1,42 +1,43 @@
-ion-content{
-    --background: #fff url('../../assets/img/background3.png') no-repeat center center / cover;
-    font-family: 'Merienda', cursive;
-
+ion-content {
+    --background: #fff url("../../assets/img/background3.png") no-repeat center center / cover;
 }
 
-ion-button{
-    font-family: 'Merienda', cursive;
+ion-button,
+ion-item,
+ion-searchbar,
+ion-list,
+ion-card-title,
+ion-card-content,
+ion-content {
+    font-family: "Merienda", cursive;
 }
 
-h5{
-    color: #fff !important;
-    margin: 0auto;
-    text-align: center;
-    margin-top:30%
-}
-
-ion-searchbar{
+ion-searchbar {
     width: 30%;
     margin-left: 35%;
-    margin-top:5%;
-    font-family: 'Merienda', cursive;
+    margin-top: 5%;
 }
 
- ion-list{
+ion-list {
     width: 28%;
     margin-left: 36%;
-    font-family: 'Merienda', cursive;
 }
 
- ion-toolbar {
-   --background: rgba(255, 255, 255, 0.041);
-   --opacity: 0.9;
-}
-ion-card{
+ion-card {
     background: #2828285e;
     width: 100%;
 }
-ion-card-title, ion-card-content{
-    font-family: 'Merienda', cursive;
-    color:#fff
+ion-card-title,
+ion-card-content {
+    color: #fff;
+}
+
+
+.seta{
+    position: absolute;
+    top: 30%;
+    left: 16px;
+    font-size: 25px;
+    z-index: 2;
+    color:gold;
 }

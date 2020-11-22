@@ -14,30 +14,39 @@ import { Util } from '../util/util';
 export class BuscarPersonagemPage implements OnInit {
   @ViewChild(IonSlides) slides: IonSlides;
   listaPersonagens: Personagem[];
-  personagensSelecionados : Personagem[];
+  personagensSelecionados: Personagem[];
   slideOpts = {
     initialSlide: 0,
     speed: 400
   };
- 
 
-  constructor(private infos: InfoPersonagensService, private modalController: ModalController) {
-    this.listaPersonagens = new Array();
-    this.personagensSelecionados = new Array();
-    this.carregarListaPeronsagens();
-  }
+  constructor(private infos: InfoPersonagensService,
+    private modalController: ModalController) { }
+
 
   ngOnInit() {
+    this.listaPersonagens = new Array();
+    this.personagensSelecionados = new Array();
+    this.carregarListaPersonagens();
   }
 
-  pesquisaPeloTermo(ev: CustomEvent) {
-    const val = ev.detail.value;
+  public carregarListaPersonagens() {
+    this.infos.buscarPersonagens().then((sucess => {
+      this.listaPersonagens = sucess;
+      this.listaPersonagens.forEach(personagem => {
+        personagem.dateOfBirth = personagem.dateOfBirth ? Util.formartarDataBrasil(personagem.dateOfBirth) : 'Desconhecida';
+        personagem.house = Util.traduzirNomeCasa(personagem.house);
+        personagem.gender = Util.traduzirSexoPersonagem(personagem.gender);
+      })
+    }))
+  }
 
-    if(!val){
+  public pesquisaPeloTermo(ev: CustomEvent) {
+    const val = ev.detail.value;
+    if (!val) {
       this.personagensSelecionados = [];
       return;
     }
-
     if (val && val.trim() !== '') {
       this.personagensSelecionados = this.listaPersonagens.filter(term => {
         return term.name.toLowerCase().indexOf(val.trim().toLowerCase()) > -1;
@@ -45,31 +54,16 @@ export class BuscarPersonagemPage implements OnInit {
     }
   }
 
-  async itemSelecionado(item){
-   /* const modal = await this.modalController.create({
-      component: InformacoesPersonagemPage,
-      componentProps: {
-        personagemSelecionado: item
-      }
-    });
-    return await modal.present();*/
-
-    this.slides.slideTo(9, 0);
-
+  public encontrarPersonagemSelecionado(item) {
+    const index = this.listaPersonagens.indexOf(item)
+    this.slides.slideTo(index, 0);
   }
 
-  carregarListaPeronsagens(){
-    this.infos.buscarPersonagens().then((sucess => {
-      this.listaPersonagens = sucess;
-    }))
-
-    this.listaPersonagens.forEach(personagem=>{
-      personagem.dateOfBirth = Util.formartarDataBrasil(personagem.dateOfBirth);
-      personagem.house = Util.traduzirNomeCasa(personagem.house);
-      personagem.gender = Util.traduzirSexoPersonagem(personagem.gender);
-    })
-
-
+  public slidePrev() {
+    this.slides.slidePrev();
+  }
+  public slideNext() {
+    this.slides.slideNext();
   }
 
 }
