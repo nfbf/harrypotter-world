@@ -8,10 +8,10 @@ import { Personagem } from '../model/personagem';
 
 export class InfoPersonagensService {
 
-  API_URL_PERSONAGENS : string = "http://hp-api.herokuapp.com/api/characters"
-  API_URL_ESTUDANTES : string = "http://hp-api.herokuapp.com/api/characters/students"
-  API_URL_FUNCIONARIOS : string = "http://hp-api.herokuapp.com/api/characters/staff"
-  API_URL_CASAS : string = "http://hp-api.herokuapp.com/api/characters/house/";
+  API_URL_PERSONAGENS : string = "https://hp-api.herokuapp.com/api/characters"
+  API_URL_ESTUDANTES : string = "https://hp-api.herokuapp.com/api/characters/students"
+  API_URL_FUNCIONARIOS : string = "https://hp-api.herokuapp.com/api/characters/staff"
+  API_URL_CASAS : string = "https://hp-api.herokuapp.com/api/characters/house/";
 
   constructor(private http : HttpClient) {}
 

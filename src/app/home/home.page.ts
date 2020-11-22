@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
-import { NavController } from '@ionic/angular';
-import { Personagem } from '../model/personagem';
 import { InfoPersonagensService } from '../servicos/info-personagens.service';
 
 @Component({
