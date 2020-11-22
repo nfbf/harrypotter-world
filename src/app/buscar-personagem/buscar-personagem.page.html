@@ -1,9 +1,10 @@
 <ion-content>
-
-  <ion-searchbar expand="block"></ion-searchbar>
-
- 
-
+  <ion-list [hidden]="personagensSelecionados.length == 0">
+    <ion-item *ngFor="let item of personagensSelecionados" tappable (click)="SelectSearchResult(item)">
+      {{ item.name }}
+    </ion-item>
+  </ion-list>
+  <ion-searchbar (ionChange)="onSearchTerm($event)" expand="block"></ion-searchbar>
   <br>
   <ion-grid>
     <ion-row>
@@ -22,7 +23,7 @@
       <ion-col></ion-col>
       <ion-col></ion-col>
       <ion-col></ion-col>
- 
+
     </ion-row>
   </ion-grid>
 
