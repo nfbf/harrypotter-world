@@ -1,5 +1,7 @@
 {
   "name": "harrypotter-world",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
