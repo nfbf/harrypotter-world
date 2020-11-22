@@ -4,6 +4,10 @@ ion-content{
 
 }
 
+ion-button{
+    font-family: 'Merienda', cursive;
+}
+
 h5{
     color: #fff !important;
     margin: 0auto;
@@ -14,14 +18,25 @@ h5{
 ion-searchbar{
     width: 30%;
     margin-left: 35%;
-    margin-top:28%
+    margin-top:5%;
+    font-family: 'Merienda', cursive;
 }
 
  ion-list{
     width: 28%;
     margin-left: 36%;
+    font-family: 'Merienda', cursive;
 }
 
-ion-grid{
- margin-left: 30%;
+ ion-toolbar {
+   --background: rgba(255, 255, 255, 0.041);
+   --opacity: 0.9;
+}
+ion-card{
+    background: #2828285e;
+    width: 100%;
+}
+ion-card-title, ion-card-content{
+    font-family: 'Merienda', cursive;
+    color:#fff
 }

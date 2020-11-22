@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonSlides, ModalController, NavController } from '@ionic/angular';
 import { InformacoesPersonagemPage } from '../informacoes-personagem/informacoes-personagem.page';
 import { Personagem } from '../model/personagem';
 import { InfoPersonagensService } from '../servicos/info-personagens.service';
@@ -11,9 +11,13 @@ import { InfoPersonagensService } from '../servicos/info-personagens.service';
 })
 
 export class BuscarPersonagemPage implements OnInit {
-
+  @ViewChild(IonSlides) slides: IonSlides;
   listaPersonagens: Personagem[];
   personagensSelecionados : Personagem[];
+  slideOpts = {
+    initialSlide: 0,
+    speed: 400
+  };
  
 
   constructor(private infos: InfoPersonagensService, private modalController: ModalController) {
@@ -41,13 +45,16 @@ export class BuscarPersonagemPage implements OnInit {
   }
 
   async itemSelecionado(item){
-    const modal = await this.modalController.create({
+   /* const modal = await this.modalController.create({
       component: InformacoesPersonagemPage,
       componentProps: {
         personagemSelecionado: item
       }
     });
-    return await modal.present();
+    return await modal.present();*/
+
+    this.slides.slideTo(9, 0);
+
   }
 
   carregarListaPeronsagens(){

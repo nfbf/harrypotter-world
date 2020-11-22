@@ -1,31 +1,48 @@
 <ion-content>
-  
-  <ion-searchbar (ionChange)="pesquisaPeloTermo($event)" placeholder="Digite o nome de um personagem..." expand="block"></ion-searchbar>
-  <ion-list [hidden]="personagensSelecionados.length == 0">
-    <ion-item *ngFor="let item of personagensSelecionados" tappable (click)="itemSelecionado(item)">
-      {{ item.name }}
-    </ion-item>
-  </ion-list>
-  <br>
-  <br>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <img src="../../assets/img/corvinal.png">
-      </ion-col>
-      <ion-col>
-        <img src="../../assets/img/grifinoria.png">
-      </ion-col>
-      <ion-col>
-        <img src="../../assets/img/lufalufa.png">
-      </ion-col>
-      <ion-col>
-        <img src="../../assets/img/sonserina.png">
-      </ion-col>
-      <ion-col></ion-col>
-      <ion-col></ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-  </ion-grid>
+  <div style="position: absolute;top: 30%;left: 16px;font-size: 25px;z-index: 2;color:gold" (click)="slidePrev()">
+    <ion-icon name="arrow-back"></ion-icon>
+  </div>
+  <div style="position: absolute;top: 30%;right: 16px;font-size: 25px;z-index: 2; color:gold; font-weight: bolder;" (click)="slideNext()">
+    <ion-icon name="arrow-forward"></ion-icon>
+  </div>
 
-</ion-content>
+ 
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let p of listaPersonagens">
+      <ion-card>
+        <br>
+        <img style="border-radius: 70px; width: 180px; height: 250px;" [src]="p.image" />
+        <ion-card-header>
+           <ion-card-title>{{p.name.toUpperCase()}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Sexo: {{p.gender}} <br>
+          Casa:  {{p.house}} <br>
+          Ator:  {{p.actor}} <br>
+          Data de nascimento:  {{p.dateOfBirth}} 
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    </ion-slides>
+    <ion-searchbar (ionChange)="pesquisaPeloTermo($event)" placeholder="Digite o nome de um personagem" expand="block"></ion-searchbar>
+    <ion-list [hidden]="personagensSelecionados.length == 0">
+      <ion-item *ngFor="let item of personagensSelecionados" tappable (click)="itemSelecionado(item)">
+        {{ item.name }}
+      </ion-item>
+    </ion-list>
+  
+
+<ion-grid>
+  <ion-row>
+    <ion-col><ion-button router-direction="root" routerLink="/home" fill="outline" size="large" expand="block">Voltar</ion-button></ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col><ion-button router-direction="root" routerLink="/informacoes/casa" fill="outline" size="large" expand="block">Avançar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  
+  </ion-content>
+
