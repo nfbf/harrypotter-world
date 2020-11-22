@@ -19,13 +19,7 @@ export class BuscarPersonagemPage implements OnInit {
   constructor(private infos: InfoPersonagensService, private modalController: ModalController) {
     this.listaPersonagens = new Array();
     this.personagensSelecionados = new Array();
-  
-
-    this.infos.carregarPersonagens().then((sucess => {
-      this.listaPersonagens = sucess;
-    }), (error => {
-      console.log(error)
-    }))
+    this.carregarListaPeronsagens();
   }
 
   ngOnInit() {
@@ -54,6 +48,12 @@ export class BuscarPersonagemPage implements OnInit {
       }
     });
     return await modal.present();
+  }
+
+  carregarListaPeronsagens(){
+    this.infos.buscarPersonagens().then((sucess => {
+      this.listaPersonagens = sucess;
+    }))
   }
 
 }
