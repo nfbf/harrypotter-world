@@ -10,8 +10,8 @@ export class HomePage {
 
   constructor(private nativeAudio: NativeAudio) {
     this.nativeAudio.preloadSimple('musicaTema', 'assets/music/hp-theme.mp3').then(this.onSucess, this.onError);
-    //this.nativeAudio.play('musicaTema').then(this.onSucess, this.onError);
-    //this.nativeAudio.loop('musicaTema').then(this.onSucess, this.onError);
+    this.nativeAudio.play('musicaTema').then(this.onSucess, this.onError);
+    this.nativeAudio.loop('musicaTema').then(this.onSucess, this.onError);
   }
 
   onSucess(data){
