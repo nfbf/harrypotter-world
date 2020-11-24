@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalController, NavParams, IonSlides } from '@ionic/angular';
-import { Personagem } from '../model/personagem';
-import { InfoPersonagensService } from '../servicos/info-personagens.service';
+import { Personagem } from '../../model/personagem';
+import { InfoPersonagensService } from '../../servicos/info-personagens.service';
 
 @Component({
   selector: 'app-modal-casa',
@@ -9,7 +9,9 @@ import { InfoPersonagensService } from '../servicos/info-personagens.service';
   styleUrls: ['./modal-casa.page.scss'],
 })
 export class ModalCasaPage implements OnInit {
+
   @ViewChild(IonSlides) slides: IonSlides;
+
   casaSelecionada: string;
   textoModal: string;
   imagemModal: string;

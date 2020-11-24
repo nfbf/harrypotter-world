@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('../app/paginas/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,19 +13,19 @@ const routes: Routes = [
   },
   {
     path: 'buscar/personagem',
-    loadChildren: () => import('./buscar-personagem/buscar-personagem.module').then( m => m.BuscarPersonagemPageModule)
+    loadChildren: () => import('../app/paginas/buscar-personagem/buscar-personagem.module').then( m => m.BuscarPersonagemPageModule)
   },
   {
     path: 'quem-somos',
-    loadChildren: () => import('./quem-somos/quem-somos.module').then( m => m.QuemSomosPageModule)
+    loadChildren: () => import('../app/paginas/quem-somos/quem-somos.module').then( m => m.QuemSomosPageModule)
   },
   {
     path: 'informacoes/casa',
-    loadChildren: () => import('./informacoes-casa/informacoes-casa.module').then( m => m.InformacoesCasaPageModule)
+    loadChildren: () => import('../app/paginas/informacoes-casa/informacoes-casa.module').then( m => m.InformacoesCasaPageModule)
   },
   {
     path: 'informacoes-personagem',
-    loadChildren: () => import('./modal-casa/modal-casa.module').then( m => m.ModalCasaPageModule)
+    loadChildren: () => import('../app/paginas/modal-casa/modal-casa.module').then( m => m.ModalCasaPageModule)
   },
 ];
 

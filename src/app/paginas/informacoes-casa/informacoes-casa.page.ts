@@ -14,14 +14,15 @@ export class InformacoesCasaPage implements OnInit {
   ngOnInit() {
   }
 
-
-public async  abrirModal(casaSelecionada:string){
-      const modal = await this.modalController.create({
+  public async abrirModal(casaSelecionada: string) {
+    const modal = await this.modalController.create({
       component: ModalCasaPage,
       componentProps: {
         casaSelecionada: casaSelecionada
       }
     });
-    return await modal.present(); 
+    return await modal.present();
   }
+
+  
 }

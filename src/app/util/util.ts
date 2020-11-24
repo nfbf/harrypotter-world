@@ -1,6 +1,3 @@
-import { BuscarPersonagemPageModule } from '../buscar-personagem/buscar-personagem.module';
-import { Personagem } from '../model/personagem';
-
 export class Util {
 
     public static traduzirNomeCasa(casa : string){

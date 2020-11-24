@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, ModalController, NavController } from '@ionic/angular';
-import { Personagem } from '../model/personagem';
-import { InfoPersonagensService } from '../servicos/info-personagens.service';
-import { Util } from '../util/util';
+import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { IonSlides } from '@ionic/angular';
+import { Personagem } from '../../model/personagem';
 
 @Component({
   selector: 'app-buscar-personagem',
@@ -10,34 +9,26 @@ import { Util } from '../util/util';
   styleUrls: ['./buscar-personagem.page.scss'],
 })
 
-export class BuscarPersonagemPage implements OnInit {
+export class BuscarPersonagemPage {
+
   @ViewChild(IonSlides) slides: IonSlides;
+
   listaPersonagens: Personagem[];
   personagensSelecionados: Personagem[];
+
   slideOpts = {
     initialSlide: 0,
     speed: 400
   };
 
-  constructor(private infos: InfoPersonagensService,
-    private modalController: ModalController) { }
+  constructor(private router: Router) {
 
-
-  ngOnInit() {
     this.listaPersonagens = new Array();
     this.personagensSelecionados = new Array();
-    this.carregarListaPersonagens();
-  }
 
-  public carregarListaPersonagens() {
-    this.infos.buscarPersonagens().then((sucess => {
-      this.listaPersonagens = sucess;
-      this.listaPersonagens.forEach(personagem => {
-        personagem.dateOfBirth = personagem.dateOfBirth ? Util.formartarDataBrasil(personagem.dateOfBirth) : 'Desconhecida';
-        personagem.house = Util.traduzirNomeCasa(personagem.house);
-        personagem.gender = Util.traduzirSexoPersonagem(personagem.gender);
-      })
-    }))
+    const nav = this.router.getCurrentNavigation();
+
+    this.listaPersonagens = nav.extras.state.listaPersonagens;
   }
 
   public pesquisaPeloTermo(ev: CustomEvent) {
