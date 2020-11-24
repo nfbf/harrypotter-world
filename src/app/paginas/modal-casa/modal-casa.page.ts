@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalController, NavParams, IonSlides } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { ModalController, NavParams } from '@ionic/angular';
 import { Personagem } from '../../model/personagem';
 import { InfoPersonagensService } from '../../servicos/info-personagens.service';
 
@@ -10,8 +10,6 @@ import { InfoPersonagensService } from '../../servicos/info-personagens.service'
 })
 export class ModalCasaPage implements OnInit {
 
-  @ViewChild(IonSlides) slides: IonSlides;
-
   casaSelecionada: string;
   textoModal: string;
   imagemModal: string;
@@ -19,7 +17,7 @@ export class ModalCasaPage implements OnInit {
 
   constructor(private modalController: ModalController,
     private navParams: NavParams,
-    private service: InfoPersonagensService) { }
+    private service: InfoPersonagensService) {}
 
   ngOnInit() {
     this.casaSelecionada = this.navParams.get('casaSelecionada');

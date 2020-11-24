@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, LoadingController } from '@ionic/angular';
 import { Personagem } from '../../model/personagem';
 
 @Component({
@@ -21,7 +21,8 @@ export class BuscarPersonagemPage {
     speed: 400
   };
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private loadingCtrl : LoadingController) {
 
     this.listaPersonagens = new Array();
     this.personagensSelecionados = new Array();
@@ -54,6 +55,13 @@ export class BuscarPersonagemPage {
   }
   public slideNext() {
     this.slides.slideNext();
+  }
+
+  public async avancarPagina(){
+    const loading = await this.loadingCtrl.create({duration : 150, spinner : 'circles'});
+    loading.present();
+
+    this.router.navigateByUrl('informacoes/casa');
   }
 
 }

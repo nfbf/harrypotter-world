@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
-import { NavController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { Personagem } from '../../model/personagem';
 import { InfoPersonagensService } from '../../servicos/info-personagens.service';
 import { Util } from '../../util/util';
@@ -16,7 +16,8 @@ export class HomePage implements OnInit {
 
   constructor(private nativeAudio: NativeAudio,
     private infos : InfoPersonagensService,
-    private navCtrl : NavController) {
+    private navCtrl : NavController,
+    private loadingCtrl : LoadingController) {
 
     this.nativeAudio.preloadSimple('musicaTema', 'assets/music/hp-theme.mp3').then(this.onSucess, this.onError);
     this.nativeAudio.play('musicaTema').then(this.onSucess, this.onError);
@@ -39,7 +40,11 @@ export class HomePage implements OnInit {
     }))
   }
 
-  public proximaPagina(){
+  public async proximaPagina(){
+
+    const loading = await this.loadingCtrl.create({duration : 150, spinner : 'circles'});
+    loading.present();
+
     this.navCtrl.navigateRoot('buscar/personagem', 
     { state : { listaPersonagens : this.listaPersonagens }});
   }
