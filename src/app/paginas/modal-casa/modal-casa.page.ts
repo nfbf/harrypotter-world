@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
+import { LoadingController, ModalController, NavParams } from '@ionic/angular';
 import { Personagem } from '../../model/personagem';
 import { InfoPersonagensService } from '../../servicos/info-personagens.service';
 
@@ -17,9 +17,12 @@ export class ModalCasaPage implements OnInit {
 
   constructor(private modalController: ModalController,
     private navParams: NavParams,
-    private service: InfoPersonagensService) {}
+    private service: InfoPersonagensService,
+    private loadingCtrl: LoadingController ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    const loading = await this.loadingCtrl.create({duration : 350, message:"Carregando..."});
+    loading.present();
     this.casaSelecionada = this.navParams.get('casaSelecionada');
     this.buscarPersonagens();
     this.montarModal();

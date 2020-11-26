@@ -42,7 +42,7 @@ export class HomePage implements OnInit {
 
   public async proximaPagina(){
 
-    const loading = await this.loadingCtrl.create({duration : 150, spinner : 'circles'});
+    const loading = await this.loadingCtrl.create({duration : 150, message:"Carregando..."});
     loading.present();
 
     this.navCtrl.navigateRoot('buscar/personagem', 

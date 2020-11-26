@@ -1,5 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { ModalCasaPage } from '../modal-casa/modal-casa.page';
 
 @Component({
@@ -9,7 +10,7 @@ import { ModalCasaPage } from '../modal-casa/modal-casa.page';
 })
 export class InformacoesCasaPage implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController) {}
 
   ngOnInit() {
   }

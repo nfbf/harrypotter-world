@@ -1,37 +1,45 @@
 <ion-header>
-  <ion-toolbar  color="dark">
-    <ion-title>Conhecendo as casas de  Hogwarts</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button  text="" defaultHref="home"></ion-back-button>
-    </ion-buttons>
-  
+  <ion-toolbar color="dark">
+    <ion-title>Conhecendo as casas de Hogwarts</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <br><br><br>
-  <img style="margin-left: 39.3%;" src="../../assets/img/casasHarryPotter.png">
-  <br><br><br>  
-  <ion-grid>
-    <ion-row>
-    <ion-col>
-      <ion-button   class="grifinoria" (click)="abrirModal('gryffindor')" fill="outline" size="large" expand="block">Grifinória</ion-button>
+<ion-grid>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <ion-row>
+      <ion-col>
+        <ion-button class="grifinoria" (click)="abrirModal('gryffindor')" fill="outline" size="large" expand="block">
+          Grifinória</ion-button>
+      </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <ion-button class="sonserina" (click)="abrirModal('slytherin')" fill="outline" size="large" expand="block">
+      Sonserina</ion-button>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <ion-button class="lufalufa" (click)="abrirModal('hufflepuff')" fill="outline" size="large" expand="block">
+      Lufa-Lufa</ion-button>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <ion-button class="voltar" (click)="voltar()" fill="outline" size="large" expand="block">Voltar
+    </ion-button>
+  </ion-col>
+  <ion-col>
+    <ion-button class="corvinal" (click)="abrirModal('ravenclaw')" fill="outline" size="large" expand="block">
+      Corvinal</ion-button>
+  </ion-col>
 
-    </ion-col>
-    <ion-col>
-      <ion-button  class="sonserina" (click)="abrirModal('slytherin')"  fill="outline" size="large" expand="block">Sonserina</ion-button>
-
-    </ion-col>
-    <ion-col>
-      <ion-button   class="lufalufa" (click)="abrirModal('hufflepuff')"  fill="outline" size="large" expand="block">Lufa-Lufa</ion-button>
-
-    </ion-col>
-    <ion-col>
-      <ion-button   class="corvinal"  (click)="abrirModal('ravenclaw')"  fill="outline" size="large" expand="block">Corvinal</ion-button>
-
-    </ion-col>
-  </ion-row>
-  </ion-grid>
-  
+  <ion-col>
+    <ion-button router-direction="root" routerLink="/quem-somos" class="creditos"  fill="outline" size="large" expand="block">
+      Créditos</ion-button>
+  </ion-col>
+</ion-row>
+</ion-grid>
 
 </ion-content>
