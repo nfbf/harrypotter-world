@@ -1,6 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonSlides, LoadingController } from '@ionic/angular';
+import { IonSlides, LoadingController, NavController } from '@ionic/angular';
 import { Personagem } from '../../model/personagem';
 
 @Component({
@@ -9,28 +9,29 @@ import { Personagem } from '../../model/personagem';
   styleUrls: ['./buscar-personagem.page.scss'],
 })
 
-export class BuscarPersonagemPage {
+export class BuscarPersonagemPage  implements OnInit {
 
   @ViewChild(IonSlides) slides: IonSlides;
 
   listaPersonagens: Personagem[];
   personagensSelecionados: Personagem[];
-
   slideOpts = {
     initialSlide: 0,
     speed: 400
   };
 
   constructor(private router: Router,
-    private loadingCtrl : LoadingController) {
+              private loadingCtrl : LoadingController,
+              private navCtrl : NavController) {}
 
+
+  ngOnInit() {
     this.listaPersonagens = new Array();
     this.personagensSelecionados = new Array();
-
     const nav = this.router.getCurrentNavigation();
-
     this.listaPersonagens = nav.extras.state.listaPersonagens;
   }
+
 
   public pesquisaPeloTermo(ev: CustomEvent) {
     const val = ev.detail.value;
@@ -58,10 +59,10 @@ export class BuscarPersonagemPage {
   }
 
   public async avancarPagina(){
-    const loading = await this.loadingCtrl.create({duration : 150, spinner : 'circles'});
+    const loading = await this.loadingCtrl.create({duration : 150, message:"Carregando..."});
     loading.present();
-
-    this.router.navigateByUrl('informacoes/casa');
+    this.navCtrl.navigateRoot('informacoes/casa', 
+    { state : { listaPersonagens : this.listaPersonagens }});
   }
 
 }

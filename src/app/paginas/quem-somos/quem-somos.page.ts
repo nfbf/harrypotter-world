@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuemSomosPage implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

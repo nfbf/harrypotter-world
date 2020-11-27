@@ -12,19 +12,21 @@ import { Util } from '../../util/util';
 })
 export class HomePage implements OnInit {
 
-  listaPersonagens : Personagem[];
+  listaPersonagens: Personagem[];
 
   constructor(private nativeAudio: NativeAudio,
-    private infos : InfoPersonagensService,
-    private navCtrl : NavController,
-    private loadingCtrl : LoadingController) {
+    private infos: InfoPersonagensService,
+    private navCtrl: NavController,
+    private loadingCtrl: LoadingController) {
 
     this.nativeAudio.preloadSimple('musicaTema', 'assets/music/hp-theme.mp3').then(this.onSucess, this.onError);
     this.nativeAudio.play('musicaTema').then(this.onSucess, this.onError);
     this.nativeAudio.loop('musicaTema').then(this.onSucess, this.onError);
   }
 
-  ngOnInit(): void {
+
+
+  ngOnInit() {
     this.listaPersonagens = new Array();
     this.carregarListaPersonagens();
   }
@@ -40,22 +42,19 @@ export class HomePage implements OnInit {
     }))
   }
 
-  public async proximaPagina(){
-
-    const loading = await this.loadingCtrl.create({duration : 150, message:"Carregando..."});
+  public async proximaPagina() {
+    const loading = await this.loadingCtrl.create({ duration: 150, message: "Carregando..." });
     loading.present();
-
-    this.navCtrl.navigateRoot('buscar/personagem', 
-    { state : { listaPersonagens : this.listaPersonagens }});
+    this.navCtrl.navigateRoot('buscar/personagem',
+      { state: { listaPersonagens: this.listaPersonagens } });
   }
 
-  onSucess(data){
+  private onSucess(data) {
     console.log(data);
   }
 
-  onError(data){
+  private onError(data) {
     console.log(data);
   }
-
 
 }

@@ -1,49 +1,58 @@
 ion-content {
-    --background: #fff url('../../../assets/img/houseshogwarts.png') no-repeat center center / cover;
+    --background: #fff url("../../../assets/img/houseshogwarts.png") no-repeat center center / cover;
+}
+
+ion-content,
+ion-title,
+.voltar,
+.grifinoria,
+.sonserina,
+.lufalufa,
+.corvinal,
+.creditos,
+.tipoCasa {
     font-family: "Merienda", cursive;
 }
 
-
 ion-title {
-    font-family: "Merienda", cursive;
     margin-left: 35%;
 }
 
-.voltar{   
+.voltar,
+.creditos {
     width: 30%;
-    font-family: "Merienda", cursive;
     --border-color: #fff !important;
+    font-size: 16px;
 }
 
-.grifinoria, .sonserina, .lufalufa  {
-    --border-color:   #a59236;
-    font-family: "Merienda", cursive;
+.grifinoria,
+.sonserina,
+.lufalufa {
+    --border-color: #a59236;
     width: 10%;
     margin-left: 46%;
     border-radius: 8px;
     font-size: 10px;
 }
-.sair{
-    --border-color: #fff !important;
-}
- 
- 
 
 .corvinal {
-    --border-color:   #a59236;
-     font-family: "Merienda", cursive;
+    --border-color: #a59236;
     width: 30%;
     margin-left: 38%;
     border-radius: 8px;
     font-size: 10px;
 }
 
-.creditos{
-    font-family: "Merienda", cursive;
-    width: 30%;
+.creditos {
     margin-left: 65%;
-     }
+}
 
 ion-button {
     border-color: transparent;
+}
+
+.tipoCasa {
+    margin-left: 38%;
+    cursor: pointer;
+    color: #a59236;
 }
