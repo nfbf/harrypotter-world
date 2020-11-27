@@ -15,19 +15,19 @@ export class InfoPersonagensService {
 
   constructor(private http : HttpClient) {}
 
-  buscarPersonagens(){
+  public buscarPersonagens(){
     return this.http.get<Personagem[]>(this.API_URL_PERSONAGENS).toPromise();
   }
 
-  buscarEstudantes(){
+  public buscarEstudantes(){
     return this.http.get<Personagem[]>(this.API_URL_ESTUDANTES).toPromise();
   }
 
-  buscarFuncionarios() {
+  public buscarFuncionarios() {
     return this.http.get<Personagem[]>(this.API_URL_FUNCIONARIOS).toPromise();
   }
 
-  buscarCasas(casa : string){
+  public buscarCasas(casa : string){
     return this.http.get<Personagem[]>(this.API_URL_CASAS + casa).toPromise();
   }
 
